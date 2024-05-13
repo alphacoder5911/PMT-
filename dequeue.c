@@ -4,6 +4,7 @@ int n = 10;
 int dq[10];
 int f = -1, r = -1;
 
+<<<<<<< HEAD
 void enqfront(char c) {
     if ((f == 0 && r == n - 1) || (f == r + 1)) {
         printf("Queue is full\n");
@@ -16,6 +17,50 @@ void enqfront(char c) {
         f--;
     }
     dq[f] = c;
+=======
+}
+else if(f==-1 && r==-1)
+{
+    f=r=0;
+    dq[r]=c;
+}
+else if(r==n-1)
+{
+    r=0;
+    dq[r]=c;
+
+}
+else{
+    r++;
+    dq[r]=c;
+}
+}
+
+void dqfront()
+{
+if(f==-1 && r==-1)
+{
+printf("KHAALI HAI RE BABA");
+}
+else if(f==r)
+{
+printf("deleted element %c",dq[f]);
+f=-1;
+r=-1;
+
+}
+else if(f==n-1)
+{
+    printf("deleted element %c ",dq[f]);
+    f=0;
+
+}
+else{
+    printf("DELETED ELEMENT %c",dq[f]);
+    f++;
+    
+}
+>>>>>>> 2be05f41ba9fa6004f65b617370e70cdd86aeef6
 }
 
 void display() {
