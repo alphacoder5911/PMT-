@@ -1,4 +1,52 @@
 #include <stdio.h>
+void enqfront(char c)
+{
+int i;
+if((f==0 && r==n-1)||(f==r+1))
+{
+printf("Q BHARGAILAHAI RE MAMU");
+}
+else if(f==-1 && r==-1)
+{
+f=0,r=0;
+dq[f]=c;
+}
+else if(f==0)
+{
+f=n-1;
+dq[f]=c;
+
+}
+else
+{
+    f--;
+    dq[f]=c;
+}
+}
+
+void enqrear(char c)
+{
+if((f==-1 && r==n-1)||(f==r+1))
+{
+printf("QUEUE BHARAGAYA HAI RE BABA ");
+
+}
+else if(f==-1 && r==-1)
+{
+    f=r=0;
+    dq[r]=c;
+}
+else if(r==n-1)
+{
+    r=0;
+    dq[r]=c;
+
+}
+else{
+    r++;
+    dq[r]=c;
+}
+}
 main()
 {
     char dku;
