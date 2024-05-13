@@ -1,169 +1,114 @@
 #include <stdio.h>
-void enqfront(char c)
-{
-int i;
-if((f==0 && r==n-1)||(f==r+1))
-{
-printf("Queue is empty");
-}
-else if(f==-1 && r==-1)
-{
-f=0,r=0;
-dq[f]=c;
-}
-else if(f==0)
-{
-f=n-1;
-dq[f]=c;
 
-}
-else
-{
-    f--;
-    dq[f]=c;
-}
-}
-void display()
-{
-int i=f;
-if(r==-1 && f==-1)
-{
-printf("Queue is empty");
-}
-else
-{
-while(i!=r)
-{
-printf(" %c ",dq[i]);
-i=(i+1)%n;
-}
-printf("%c",dq[r]);
-}
-}
-void enqrear(char c)
-{
-if((f==-1 && r==n-1)||(f==r+1))
-{
-printf("Queue is Full ");
+int n = 10;
+int dq[10];
+int f = -1, r = -1;
 
-}
-else if(f==-1 && r==-1)
-{
-    f=r=0;
-    dq[r]=c;
-}
-else if(r==n-1)
-{
-    r=0;
-    dq[r]=c;
-
-}
-else{
-    r++;
-    dq[r]=c;
-}
-}
-void display(){
-int i=f;
-if(r==-1 && f==-1)
-{
-printf("QUEUE is empty");
-}
-else
-{
-while(i!=r)
-{
-printf(" %c ",dq[i]);
-i=(i+1)%n;
-}
-printf("%c",dq[r]);
-}
-}
-void dqfront()
-{
-if(f==-1 && r==-1)
-{
-printf("queue is empty");
-}
-else if(f==r)
-{
-printf("deleted element %c",dq[f]);
-f=-1;
-r=-1;
-
-}
-else if(f==n-1)
-{
-    printf("deleted element %c ",dq[f]);
-    f=0;
-
-}
-else{
-    printf("DELETED ELEMENT %c",dq[f]);
-    f++;
-    
-}
+void enqfront(char c) {
+    if ((f == 0 && r == n - 1) || (f == r + 1)) {
+        printf("Queue is full\n");
+        return;
+    } else if (f == -1 && r == -1) {
+        f = r = 0;
+    } else if (f == 0) {
+        f = n - 1;
+    } else {
+        f--;
+    }
+    dq[f] = c;
 }
 
-void dqrear()
-{
-if(f==-1 && r==-1)
-{
-printf("queue khaali hai ");
+void display() {
+    if (f == -1 && r == -1) {
+        printf("Queue is empty\n");
+        return;
+    }
+    int i = f;
+    do {
+        printf("%c ", dq[i]);
+        i = (i + 1) % n;
+    } while (i != r);
+    printf("%c\n", dq[r]);
 }
-else if(f==r)
-{
-printf("removed elemtn %c",dq[r]);
-r=f=-1;
-}
-else if(r==0)
-{
-printf("deleted element %c ",dq[r]);
-r=n-1;
 
+void enqrear(char c) {
+    if ((f == 0 && r == n - 1) || (f == r + 1)) {
+        printf("Queue is full\n");
+        return;
+    } else if (f == -1 && r == -1) {
+        f = r = 0;
+    } else if (r == n - 1) {
+        r = 0;
+    } else {
+        r++;
+    }
+    dq[r] = c;
 }
-else
-{
-    printf("DELETED ELEMENT %c",dq[r]);
-    r--;
+
+void dqfront() {
+    if (f == -1 && r == -1) {
+        printf("Queue is empty\n");
+        return;
+    } else if (f == r) {
+        printf("Deleted element: %c\n", dq[f]);
+        f = r = -1;
+    } else if (f == n - 1) {
+        printf("Deleted element: %c\n", dq[f]);
+        f = 0;
+    } else {
+        printf("Deleted element: %c\n", dq[f]);
+        f++;
+    }
 }
+
+void dqrear() {
+    if (f == -1 && r == -1) {
+        printf("Queue is empty\n");
+        return;
+    } else if (f == r) {
+        printf("Removed element: %c\n", dq[r]);
+        f = r = -1;
+    } else if (r == 0) {
+        printf("Deleted element: %c\n", dq[r]);
+        r = n - 1;
+    } else {
+        printf("Deleted element: %c\n", dq[r]);
+        r--;
+    }
 }
-main()
-{
+
+int main() {
     char dku;
-    int x,respo;
-    do
-    {
-    printf("enter 1:NQFRONT\n2:NQREAR\n3:DQFRONT\n4:DQREAR\n");
-    scanf("%d",&x);
-    switch(x)
-    {
-        case 1:
-                printf("ENTETR THE CHARECTER ");
-                scanf(" %c",&dku);
+    int x, respo;
+    do {
+        printf("Enter operation:\n1: Enqueue Front\n2: Enqueue Rear\n3: Dequeue Front\n4: Dequeue Rear\n5: Display\n");
+        scanf("%d", &x);
+        switch (x) {
+            case 1:
+                printf("Enter the character: ");
+                scanf(" %c", &dku);
                 enqfront(dku);
                 break;
-        case 2:
-                printf("ENTER THE ELEMENT TO BE EQ FORM REAR");
-                scanf("%d",&dku);
+            case 2:
+                printf("Enter the element to be enqueued from rear: ");
+                scanf(" %c", &dku);
                 enqrear(dku);
                 break;
-        case 3:
+            case 3:
                 dqfront();
                 break;
-        case 4:
+            case 4:
                 dqrear();
                 break;
-        case 5:
+            case 5:
                 display();
                 break;
-        default:
+            default:
+                printf("Invalid choice\n");
                 break;
-    }
-    
-    printf("DO U WANT TO PERFORM THE ABOVE OPS AGAIN.IF YES PRESS 1 OR ANY OTHER INTEGER KEY");
-    scanf("%d",&respo);
-                
-    
-    }while(respo==1);
+        }
+        printf("Do you want to perform the above operation again? (Press 1 for Yes, or any other key to exit): ");
+        scanf("%d", &respo);
+    } while (respo == 1);
+    return 0;
 }
