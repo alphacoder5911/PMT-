@@ -4,7 +4,7 @@ void enqfront(char c)
 int i;
 if((f==0 && r==n-1)||(f==r+1))
 {
-printf("Q BHARGAILAHAI RE MAMU");
+printf("Queue is empty");
 }
 else if(f==-1 && r==-1)
 {
@@ -28,7 +28,7 @@ void display()
 int i=f;
 if(r==-1 && f==-1)
 {
-printf("QUEUE KHAALI HAI");
+printf("Queue is empty");
 }
 else
 {
@@ -44,7 +44,7 @@ void enqrear(char c)
 {
 if((f==-1 && r==n-1)||(f==r+1))
 {
-printf("QUEUE BHARAGAYA HAI RE BABA ");
+printf("Queue is Full ");
 
 }
 else if(f==-1 && r==-1)
@@ -67,7 +67,7 @@ void display(){
 int i=f;
 if(r==-1 && f==-1)
 {
-printf("QUEUE KHAALI HAI");
+printf("QUEUE is empty");
 }
 else
 {
@@ -83,7 +83,7 @@ void dqfront()
 {
 if(f==-1 && r==-1)
 {
-printf("KHAALI HAI RE BABA");
+printf("queue is empty");
 }
 else if(f==r)
 {
