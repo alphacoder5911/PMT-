@@ -48,7 +48,20 @@ else{
 }
 }
 void display(){
-
+int i=f;
+if(r==-1 && f==-1)
+{
+printf("QUEUE KHAALI HAI");
+}
+else
+{
+while(i!=r)
+{
+printf(" %c ",dq[i]);
+i=(i+1)%n;
+}
+printf("%c",dq[r]);
+}
 }
 main()
 {
