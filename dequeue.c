@@ -47,6 +47,9 @@ else{
     dq[r]=c;
 }
 }
+void display(){
+
+}
 main()
 {
     char dku;
