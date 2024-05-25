@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include<stdlib.h>
 int n = 10;
 int dq[10];
 int f = -1, r = -1;
